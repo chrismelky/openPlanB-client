@@ -10,7 +10,7 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', loadChildren: '../dashboard/dashboard.module#DashboardModule', canLoad: [AuthGuard] },
-      { path: 'users', loadChildren: '../users/users.module#UsersModule', canLoad: [AuthGuard] },
+      { path: 'setup/users', loadChildren: '../users/users.module#UsersModule', canLoad: [AuthGuard] },
     ]
   }
 ];

@@ -1,6 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { MatPaginator, MatSort } from '@angular/material';
 import { UserListDataSource } from './user-list-datasource';
+import { UserResourceService } from '../../rest-api';
+import { merge } from 'rxjs';
+
 
 @Component({
   selector: 'app-user-list',
@@ -12,10 +15,17 @@ export class UserListComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   dataSource: UserListDataSource;
 
+  constructor(private userService: UserResourceService) {
+  }
+
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'name'];
+  displayedColumns = ['id', 'firstName', 'lastName', 'email', 'login'];
 
   ngOnInit() {
-    this.dataSource = new UserListDataSource(this.paginator, this.sort);
+
+    this.dataSource = new UserListDataSource(this.paginator, this.sort, this.userService);
+
   }
+
+
 }

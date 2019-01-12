@@ -3,17 +3,27 @@
 }
 
 .sidenav {
-  width: 200px;
+  width: 230px;
+  background: #2A3F54; 
+}
+.iconsidenav {
+  width: 30px;
+  background: #2A3F54; 
+}
+.sidenav .mat-list-base .mat-list-item, .sidenav .mat-toolbar {
+  color: rgb(255, 255, 255);
 }
 
 .sidenav .mat-toolbar {
-  background: inherit;
+  background:inherit;
 }
 
 .mat-toolbar.mat-primary {
   position: sticky;
   top: 0;
   z-index: 1;
+  background: #EDEDED;
+  border-bottom: 1px solid #D9DEE4;
 }
 
 .sub-menu{
@@ -22,5 +32,14 @@
 
 .grid-container {
   margin: 20px;
+}
+
+.mat-list-item-content {
+  width: 100%
+}
+
+app-menu-list-item[parent-expanded="true"] {
+  border-left: solid 2px #51B1F1;
+  background-color: rgb(44, 62, 80,0.5)
 }
 

@@ -21,8 +21,9 @@ import { throwIfAlreadyLoaded } from './module-import.guard';
 import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MenuListItemComponent } from './nav/menu-list-item/menu-list-item.component';
 @NgModule({
-  declarations: [NavComponent, LoginComponent, PageNotFoundComponent],
+  declarations: [NavComponent, LoginComponent, PageNotFoundComponent, MenuListItemComponent],
   imports: [
     CommonModule,
     CoreRoutingModule,

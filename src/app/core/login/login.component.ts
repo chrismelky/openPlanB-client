@@ -8,12 +8,18 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  loginError: string;
+
   loginForm = this.fb.group({
     userName: [null, Validators.required],
     password: [null, Validators.required]
   });
 
-  constructor(private fb: FormBuilder, private authServce: AuthService) {}
+  constructor(private fb: FormBuilder, private authServce: AuthService) {
+    authServce.getLoginError().subscribe((message) => {
+      this.loginError = message;
+    });
+  }
 
   onSubmit() {
     this.authServce.login(this.loginForm.value);
