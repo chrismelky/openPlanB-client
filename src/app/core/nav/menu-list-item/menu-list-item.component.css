@@ -15,11 +15,11 @@
  float:right;
 }
 .routeIcon {
-  margin-right: 20px;
-  color: #51B1F1;
+  margin-right: 10px;
+  color: #3c8dbc;
 }
 
 app-menu-list-item[parent-expanded="true"] {
-    border-left: solid 2px #51B1F1;
+    border-left: solid 2px #3c8dbc;
     background-color: rgb(44, 62, 80,0.5)
 }

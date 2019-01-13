@@ -11,22 +11,24 @@
  */
 /* tslint:disable:no-unused-variable member-ordering */
 
-import { Inject, Injectable, Optional }                      from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams,
-         HttpResponse, HttpEvent }                           from '@angular/common/http';
-import { CustomHttpUrlEncodingCodec }                        from '../encoder';
+import { Inject, Injectable, Optional } from '@angular/core';
+import {
+    HttpClient, HttpHeaders, HttpParams,
+    HttpResponse, HttpEvent
+} from '@angular/common/http';
+import { CustomHttpUrlEncodingCodec } from '../encoder';
 
-import { Observable }                                        from 'rxjs';
+import { Observable } from 'rxjs';
 
 import { User } from '../model/user';
 import { UserDTO } from '../model/userDTO';
 
-import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
-import { Configuration }                                     from '../configuration';
+import { BASE_PATH, COLLECTION_FORMATS } from '../variables';
+import { Configuration } from '../configuration';
 
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class UserResourceService {
 
@@ -34,7 +36,7 @@ export class UserResourceService {
     public defaultHeaders = new HttpHeaders();
     public configuration = new Configuration();
 
-    constructor(protected httpClient: HttpClient, @Optional()@Inject(BASE_PATH) basePath: string, @Optional() configuration: Configuration) {
+    constructor(protected httpClient: HttpClient, @Optional() @Inject(BASE_PATH) basePath: string, @Optional() configuration: Configuration) {
         if (basePath) {
             this.basePath = basePath;
         }
@@ -69,7 +71,7 @@ export class UserResourceService {
     public createUserUsingPOST(userDTO: UserDTO, observe?: 'body', reportProgress?: boolean): Observable<User>;
     public createUserUsingPOST(userDTO: UserDTO, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<User>>;
     public createUserUsingPOST(userDTO: UserDTO, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<User>>;
-    public createUserUsingPOST(userDTO: UserDTO, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public createUserUsingPOST(userDTO: UserDTO, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
 
         if (userDTO === null || userDTO === undefined) {
             throw new Error('Required parameter userDTO was null or undefined when calling createUserUsingPOST.');
@@ -116,7 +118,7 @@ export class UserResourceService {
     public deleteUserUsingDELETE(login: string, observe?: 'body', reportProgress?: boolean): Observable<any>;
     public deleteUserUsingDELETE(login: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
     public deleteUserUsingDELETE(login: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
-    public deleteUserUsingDELETE(login: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public deleteUserUsingDELETE(login: string, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
 
         if (login === null || login === undefined) {
             throw new Error('Required parameter login was null or undefined when calling deleteUserUsingDELETE.');
@@ -166,7 +168,7 @@ export class UserResourceService {
     public getAllUsersUsingGET(offset?: number, page?: number, pageNumber?: number, pageSize?: number, paged?: boolean, size?: number, sort?: Array<string>, sortSorted?: boolean, sortUnsorted?: boolean, unpaged?: boolean, observe?: 'body', reportProgress?: boolean): Observable<Array<UserDTO>>;
     public getAllUsersUsingGET(offset?: number, page?: number, pageNumber?: number, pageSize?: number, paged?: boolean, size?: number, sort?: Array<string>, sortSorted?: boolean, sortUnsorted?: boolean, unpaged?: boolean, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<UserDTO>>>;
     public getAllUsersUsingGET(offset?: number, page?: number, pageNumber?: number, pageSize?: number, paged?: boolean, size?: number, sort?: Array<string>, sortSorted?: boolean, sortUnsorted?: boolean, unpaged?: boolean, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<UserDTO>>>;
-    public getAllUsersUsingGET(offset?: number, page?: number, pageNumber?: number, pageSize?: number, paged?: boolean, size?: number, sort?: Array<string>, sortSorted?: boolean, sortUnsorted?: boolean, unpaged?: boolean, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public getAllUsersUsingGET(offset?: number, page?: number, pageNumber?: number, pageSize?: number, paged?: boolean, size?: number, sort?: Array<string>, sortSorted?: boolean, sortUnsorted?: boolean, unpaged?: boolean, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
 
 
 
@@ -178,7 +180,7 @@ export class UserResourceService {
 
 
 
-        let queryParameters = new HttpParams({encoder: new CustomHttpUrlEncodingCodec()});
+        let queryParameters = new HttpParams({ encoder: new CustomHttpUrlEncodingCodec() });
         if (offset !== undefined && offset !== null) {
             queryParameters = queryParameters.set('offset', <any>offset);
         }
@@ -247,7 +249,7 @@ export class UserResourceService {
     public getAuthoritiesUsingGET(observe?: 'body', reportProgress?: boolean): Observable<Array<string>>;
     public getAuthoritiesUsingGET(observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<Array<string>>>;
     public getAuthoritiesUsingGET(observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<Array<string>>>;
-    public getAuthoritiesUsingGET(observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public getAuthoritiesUsingGET(observe: any = 'body', reportProgress: boolean = false): Observable<any> {
 
         let headers = this.defaultHeaders;
 
@@ -284,7 +286,7 @@ export class UserResourceService {
     public getUserUsingGET(login: string, observe?: 'body', reportProgress?: boolean): Observable<UserDTO>;
     public getUserUsingGET(login: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<UserDTO>>;
     public getUserUsingGET(login: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<UserDTO>>;
-    public getUserUsingGET(login: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public getUserUsingGET(login: string, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
 
         if (login === null || login === undefined) {
             throw new Error('Required parameter login was null or undefined when calling getUserUsingGET.');
@@ -325,7 +327,7 @@ export class UserResourceService {
     public updateUserUsingPUT(userDTO: UserDTO, observe?: 'body', reportProgress?: boolean): Observable<UserDTO>;
     public updateUserUsingPUT(userDTO: UserDTO, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<UserDTO>>;
     public updateUserUsingPUT(userDTO: UserDTO, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<UserDTO>>;
-    public updateUserUsingPUT(userDTO: UserDTO, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public updateUserUsingPUT(userDTO: UserDTO, observe: any = 'body', reportProgress: boolean = false): Observable<any> {
 
         if (userDTO === null || userDTO === undefined) {
             throw new Error('Required parameter userDTO was null or undefined when calling updateUserUsingPUT.');

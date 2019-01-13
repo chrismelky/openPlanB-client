@@ -15,7 +15,7 @@ import { NavService } from '../nav.service';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit, AfterViewInit {
-  @ViewChild('appDrawer') appDrawer: ElementRef;
+  @ViewChild('drawer') drawer: ElementRef;
 
   isLoading = false;
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
@@ -35,42 +35,87 @@ export class NavComponent implements OnInit, AfterViewInit {
       route: 'setup',
       children: [
         {
-          displayName: 'Users',
-          iconName: 'person',
-          route: 'setup/users',
-          children: []
-        },
-        {
-          displayName: 'Sessions',
-          iconName: 'speaker_notes',
-          route: 'devfestfl/sessions',
+          displayName: 'Maintenance',
+          iconName: 'build',
+          route: 'setup/maintenance',
           children: [
             {
-              displayName: 'Create Enterprise UIs',
-              iconName: 'star_rate',
-              route: 'devfestfl/sessions/material-design'
+              displayName: 'Configurations',
+              iconName: 'build',
+              route: 'setup/configuration'
             },
             {
-              displayName: 'What\'s up with the Web?',
-              iconName: 'star_rate',
-              route: 'devfestfl/sessions/what-up-web'
-            },
-            {
-              displayName: 'My ally, the CLI',
-              iconName: 'star_rate',
-              route: 'devfestfl/sessions/my-ally-cli'
-            },
-            {
-              displayName: 'Become an Angular Tailor',
-              iconName: 'star_rate',
-              route: 'devfestfl/sessions/become-angular-tailer'
+              displayName: 'Attributes',
+              iconName: 'edit_attributes',
+              route: 'setup/attributes'
             }
           ]
         },
         {
-          displayName: 'Feedback',
-          iconName: 'feedback',
-          route: 'devfestfl/feedback'
+          displayName: 'User Management',
+          iconName: 'people',
+          route: 'setup/users',
+          children: [
+            {
+              displayName: 'Users',
+              iconName: 'person',
+              route: 'setup/users'
+            },
+            {
+              displayName: 'Roles',
+              iconName: 'verified_user',
+              route: 'setup/roles'
+            },
+          ]
+        },
+        {
+          displayName: 'Organisation Units',
+          iconName: 'table_chart',
+          route: 'setup/orgunits',
+          children: [
+            {
+              displayName: 'OrgUnit Units',
+              iconName: 'table_chart',
+              route: 'setup/orgunits'
+            },
+            {
+              displayName: 'OrgUnit Groups',
+              iconName: 'bubble_chart',
+              route: 'setup/orgunits/groups'
+            },
+            {
+              displayName: 'OrgUnit Sets',
+              iconName: 'pie_chart',
+              route: 'setup/orgunits/sets'
+            },
+            {
+              displayName: 'OrgUnit Levels',
+              iconName: 'format_list_numbered',
+              route: 'setup/orgunits/levels'
+            }
+          ]
+        },
+        {
+          displayName: 'Planning Units',
+          iconName: 'table_chart',
+          route: 'setup/sub-units',
+          children: [
+            {
+              displayName: 'Planning Units',
+              iconName: 'table_chart',
+              route: 'setup/planning-units'
+            },
+            {
+              displayName: 'Planning Unit Levels',
+              iconName: 'format_list_numbered',
+              route: 'setup/planning-unit-levels'
+            },
+            {
+              displayName: 'Sectors',
+              iconName: 'pie_chart',
+              route: 'setup/sectors'
+            }
+          ]
         }
       ]
     },
@@ -356,7 +401,7 @@ export class NavComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.navService.appDrawer = this.appDrawer;
+    this.navService.appDrawer = this.drawer;
   }
 
 }

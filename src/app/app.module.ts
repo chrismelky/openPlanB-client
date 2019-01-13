@@ -10,7 +10,8 @@ import { CoreModule } from './core/core.module';
 import { ApiModule, BASE_PATH } from './rest-api';
 import { environment } from '../environments/environment';
 import { AppHttpInterceptorService } from './core/app-http-interceptor.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule, MatButtonModule, MatSelectModule, MatRadioModule, MatCardModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,12 @@ import { FormsModule } from '@angular/forms';
     CoreModule,
     AppRoutingModule,
     SharedModule,
+    MatInputModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatCardModule,
+    ReactiveFormsModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AppHttpInterceptorService, multi: true },
